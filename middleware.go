@@ -71,7 +71,7 @@ func AuthMiddleware(ag Authenticator) Adapter {
 				w.Write([]byte(http.StatusText(http.StatusInternalServerError)))
 				return
 			}
-			if authorized != true {
+			if !authorized {
 				w.WriteHeader(http.StatusUnauthorized)
 				w.Write([]byte(http.StatusText(http.StatusUnauthorized)))
 				return
